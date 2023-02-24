@@ -2,13 +2,10 @@
 
 <h1>Restaurants</h1>
 
+<%= link_to 'Top Restaurants', top_restaurants_path, class: 'btn btn-primary' %>
+
 <div id="restaurants">
-  <% @restaurants.each do |restaurant| %>
-    <%= render restaurant %>
-    <p>
-      <%= link_to "Show this restaurant", restaurant %>
-    </p>
-  <% end %>
+  <%= render "restaurants/list", restaurants: @restaurants %>
 </div>
 
 <%= link_to "New restaurant", new_restaurant_path %>

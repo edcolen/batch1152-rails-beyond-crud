@@ -14,4 +14,19 @@
     <%= restaurant.rating %>
   </p>
 
+  <%= link_to 'See chef', chef_restaurant_path(restaurant) %>
+  <%= link_to 'Add review', new_restaurant_review_path(restaurant) %>
+
+  <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+    <% restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %>
+        <%= link_to 'delete',
+        review_path(review),
+        data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
+        class: 'btn btn-sm btn-danger' %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
 </div>
